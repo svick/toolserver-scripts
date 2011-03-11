@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 #Written by MZMcBride and Svick
 
+#$ -l sqlprocs-s1=1
+#$ -j y
+
 debug = False
 
 """
