@@ -26,6 +26,7 @@ for pageinfo in result:
   pageid = pageinfo['pageid']
   page = wikitools.Page(wiki, pageid=pageid)
   title = page.title
+  print 'Fixing ' + title
   text = page.getWikiText()
   newText = re.sub(r'^(\s*\|\s*name\s*=\s*).*$', r'\1' + title, text, flags=re.MULTILINE)
   page.edit(newText, summary='Fixing name', bot=1)
