@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+#$ -l sqlprocs-s1=1
+#$ -j y
+
 import wikitools
 import settings
 import re
