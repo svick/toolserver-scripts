@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #Written by MZMcBride and Svick
 
-#$ -l sqlprocs-s1=1
+#$ -l sql-s1-user=1
 #$ -j y
 
 debug = False
