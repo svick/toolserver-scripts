@@ -36,7 +36,7 @@ else:
     stored_max_page_id = stored_max_page_id
 
 all_page_ids = set()
-limit = 100000
+limit = 1000000
 cursor1.execute('''
 /* page-creators.py SLOW_OK */
 SELECT
