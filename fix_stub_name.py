@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 
-#$ -j y
-
 import wikitools
 import settings
 import re
- 
+
 wiki = wikitools.Wiki(settings.apiurl)
 wiki.login(settings.username, settings.password)
 
@@ -28,6 +26,8 @@ for pageinfo in result:
   pageid = pageinfo['pageid']
   page = wikitools.Page(wiki, pageid=pageid)
   title = page.title
+  if title.startswith('Template:Asbox'):
+    continue;
   print 'Fixing ' + title
   text = page.getWikiText()
   newText = re.sub(r'^(\s*\|\s*name\s*=\s*).*$', r'\1' + title, text, flags=re.MULTILINE)
