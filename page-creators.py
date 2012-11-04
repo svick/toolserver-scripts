@@ -26,6 +26,7 @@ cursor1.execute('SELECT MAX(page_id) FROM page;')
 real_max_page_id = cursor1.fetchone()[0]
 
 conn2 = MySQLdb.connect(host='sql-s1-user', db='u_svick_enwiki_page_creators_p', read_default_file='~/.my.cnf')
+conn2.autocommit(True)
 cursor2 = conn2.cursor()
 # Get the max(page_id)
 cursor2.execute('SELECT MAX(c_page_id) FROM creator;')
@@ -81,7 +82,6 @@ for integer in range(stored_max_page_id+1, real_max_page_id+1):
         except TypeError:
             continue
 
-conn2.commit()
 cursor1.close()
 conn1.close()
 cursor2.close()
